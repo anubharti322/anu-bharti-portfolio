@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Konrai Overseas - Data Analyst Portfolio</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(168, 85, 247, 0.03) 50%, rgba(236, 72, 153, 0.02) 100%);
+            backdrop-filter: blur(0.5px);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.06) 50%, rgba(236, 72, 153, 0.08) 100%);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+            color: #1f2937;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        header h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: #4b5563;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 56px;
+            position: relative;
+        }
+
+        .section:first-of-type {
+            margin-top: 40px;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(99, 102, 241, 0.3) 50%, 
+                transparent 100%);
+        }
+
+        .section:first-of-type::before {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+            border-radius: 2px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 20px;
+            box-shadow: 
+                0 25px 50px -12px rgba(99, 102, 241, 0.12),
+                0 10px 25px -5px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.06) 0%, 
+                rgba(168, 85, 247, 0.04) 30%, 
+                rgba(236, 72, 153, 0.06) 70%, 
+                rgba(99, 102, 241, 0.06) 100%);
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(99, 102, 241, 0.4) 25%, 
+                rgba(168, 85, 247, 0.5) 50%, 
+                rgba(236, 72, 153, 0.4) 75%, 
+                transparent 100%);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 
+                0 40px 80px -12px rgba(99, 102, 241, 0.18),
+                0 25px 50px -5px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.85);
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        .card:hover::before {
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.08) 0%, 
+                rgba(168, 85, 247, 0.06) 30%, 
+                rgba(236, 72, 153, 0.08) 70%, 
+                rgba(99, 102, 241, 0.08) 100%);
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .about-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            border-radius: 2px;
+        }
+
+        .about-section p {
+            color: #374151;
+            line-height: 1.65;
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        /* Journey Button - Transparent with Border */
+        .journey-button {
+            background: transparent;
+            color: #4f46e5;
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%) 1;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+            transition: left 0.3s ease;
+        }
+
+        .journey-button:hover::before {
+            left: 0;
+        }
+
+        .journey-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.2);
+        }
+
+        /* Journey Content - Soft Edges Matching Cards */
+        .journey-content {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+            position: relative;
+            box-shadow: 
+                0 25px 50px -12px rgba(99, 102, 241, 0.08),
+                0 10px 25px -5px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .journey-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.04) 0%, 
+                rgba(168, 85, 247, 0.03) 50%, 
+                rgba(236, 72, 153, 0.04) 100%);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .journey-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(99, 102, 241, 0.3) 25%, 
+                rgba(168, 85, 247, 0.4) 50%, 
+                rgba(236, 72, 153, 0.3) 75%, 
+                transparent 100%);
+            border-radius: 28px 28px 0 0;
+        }
+
+        .journey-content.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .journey-content h4 {
+            color: #1f2937;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-content p {
+            color: #374151;
+            line-height: 1.65;
+            margin-bottom: 18px;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Core Competencies - Compact Horizontal Layout */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .competency-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.12);
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .competency-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.04) 0%, 
+                rgba(168, 85, 247, 0.03) 50%, 
+                rgba(236, 72, 153, 0.04) 100%);
+            pointer-events: none;
+        }
+
+        .competency-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.12);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .competency-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .competency-icon {
+            width: 20px;
+            height: 20px;
+            color: #6366f1;
+            flex-shrink: 0;
+        }
+
+        .competency-text {
+            color: #1f2937;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .case-study-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .case-study-card .card-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .case-study-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .case-study-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 32px;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            border-radius: 3px;
+        }
+
+        .case-study-content {
+            color: #374151;
+            line-height: 1.65;
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .case-study-content p {
+            margin-bottom: 16px;
+        }
+
+        .case-study-content strong {
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        .case-study-footer {
+            margin-top: auto;
+            padding-top: 10px;
+        }
+
+        /* Walkthrough Button - Transparent with Border - Aligned */
+        .walkthrough-button {
+            background: transparent;
+            color: #ec4899;
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #ec4899 0%, #be185d 100%) 1;
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .walkthrough-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(190, 24, 93, 0.1) 100%);
+            transition: left 0.3s ease;
+        }
+
+        .walkthrough-button:hover::before {
+            left: 0;
+        }
+
+        .walkthrough-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Key Results - 2x2 Grid with Clickable Cards */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .result-card {
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-card .card-content {
+            padding: 30px 25px;
+            width: 100%;
+        }
+
+        .result-card::before {
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.08) 0%, 
+                rgba(168, 85, 247, 0.06) 50%, 
+                rgba(236, 72, 153, 0.08) 100%);
+        }
+
+        .result-card::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        .result-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            margin-top: 15px;
+        }
+
+        .result-text {
+            color: #374151;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Cards - Horizontal Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card .card-content {
+            padding: 30px 25px;
+            width: 100%;
+        }
+
+        .contact-card::before {
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.08) 0%, 
+                rgba(168, 85, 247, 0.06) 50%, 
+                rgba(236, 72, 153, 0.08) 100%);
+        }
+
+        .contact-card:hover::before {
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.12) 0%, 
+                rgba(168, 85, 247, 0.10) 50%, 
+                rgba(236, 72, 153, 0.12) 100%);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1) rotate(6deg);
+        }
+
+        .email-icon {
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+        }
+
+        .linkedin-icon {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .github-icon {
+            background: linear-gradient(135deg, #6b7280 0%, #374151 100%);
+            box-shadow: 0 10px 30px rgba(107, 114, 128, 0.3);
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .contact-text {
+            color: #374151;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(168, 85, 247, 0.04) 50%, rgba(236, 72, 153, 0.06) 100%);
+            backdrop-filter: blur(25px);
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            color: #374151;
+            text-align: center;
+            padding: 40px;
+            font-weight: 500;
+            margin-top: 40px;
+        }
+
+        /* Enhanced Floating elements - More circles */
+        .floating-element {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.04;
+            animation: float 12s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            top: 20%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ec4899, #be185d);
+            top: 30%;
+            right: 8%;
+            animation-delay: 4s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            bottom: 30%;
+            left: 10%;
+            animation-delay: 8s;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            top: 70%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            top: 50%;
+            left: 3%;
+            animation-delay: 6s;
+        }
+
+        .floating-element:nth-child(6) {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .floating-element:nth-child(7) {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            top: 80%;
+            left: 25%;
+            animation-delay: 5s;
+        }
+
+        .floating-element:nth-child(8) {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            top: 10%;
+            right: 35%;
+            animation-delay: 7s;
+        }
+
+        .floating-element:nth-child(9) {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #84cc16, #65a30d);
+            top: 40%;
+            right: 25%;
+            animation-delay: 3s;
+        }
+
+        .floating-element:nth-child(10) {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            bottom: 40%;
+            left: 20%;
+            animation-delay: 9s;
+        }
+
+        .floating-element:nth-child(11) {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #e11d48, #be123c);
+            top: 60%;
+            left: 40%;
+            animation-delay: 11s;
+        }
+
+        .floating-element:nth-child(12) {
+            width: 95px;
+            height: 95px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            bottom: 60%;
+            right: 40%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.04; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.08; }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            margin: 20px;
+            box-shadow: 
+                0 25px 50px -12px rgba(99, 102, 241, 0.25),
+                0 10px 25px -5px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.04) 0%, 
+                rgba(168, 85, 247, 0.03) 50%, 
+                rgba(236, 72, 153, 0.04) 100%);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .modal-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(99, 102, 241, 0.4) 25%, 
+                rgba(168, 85, 247, 0.5) 50%, 
+                rgba(236, 72, 153, 0.4) 75%, 
+                transparent 100%);
+            border-radius: 28px 28px 0 0;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #4f46e5;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-body h4 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .modal-body h4:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body p {
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .modal-body ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .modal-body li {
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.4rem;
+            }
+            
+            header p {
+                font-size: 1.05rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .card-content {
+                padding: 30px 25px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .competencies-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-element {
+                display: none;
+            }
+
+            .modal-content {
+                margin: 10px;
+                padding: 30px 25px;
+                max-height: 90vh;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                margin-bottom: 60px;
+            }
+        }
+    
+
+/* Case study media image */
+.case-study-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    display: block;
+    filter: saturate(1.02);
+}
+
+/* Metric badges inside case studies */
+.metrics-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 6px 0 18px 0;
+}
+
+.metric-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #065f46; /* deep green text */
+    background: linear-gradient(135deg, rgba(16,185,129,0.16) 0%, rgba(5,150,105,0.16) 100%);
+    border: 1px solid rgba(16,185,129,0.35);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+/* Small tick icon for badges */
+.metric-badge svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* Make card media a bit taller on wider screens */
+@media (min-width: 1024px) {
+    .case-study-img { height: 260px; }
+}
+
+
+/* Slimmer case study visuals */
+.case-study-img {
+    height: 160px;
+}
+
+.card-content {
+    padding: 28px;
+}
+
+.case-study-title {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+}
+
+.case-study-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.metrics-badges {
+    margin: 4px 0 14px 0;
+}
+
+.metric-badge {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+}
+
+
+/* Subtle checks/grid background - darker & enhanced */
+.checks-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 2; /* above overlay, below content */
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right, rgba(99,102,241,0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99,102,241,0.12) 1px, transparent 1px),
+        radial-gradient(circle at 25% 25%, rgba(236,72,153,0.06) 0%, transparent 40%),
+        radial-gradient(circle at 75% 75%, rgba(79,70,229,0.05) 0%, transparent 40%);
+    background-size: 24px 24px, 24px 24px, 300px 300px, 300px 300px;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .checks-bg {
+        background-size: 18px 18px, 18px 18px, 200px 200px, 200px 200px;
+        opacity: 0.9;
+    }
+}
+
+/* Make anchor buttons match the walkthrough style and remove underline */
+a.walkthrough-button { 
+  text-decoration: none; 
+  display: inline-block;
+}
+
+/* Keep the two buttons side-by-side with spacing */
+.case-study-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* === Mobile-only: Larger fonts inside case study cards === */
+@media (max-width: 768px) {
+  /* Titles bigger */
+  .case-study-card .case-study-title {
+    font-size: 1.6rem !important;   /* was ~1.4–1.6rem */
+    line-height: 1.25 !important;
+  }
+  /* Body text bigger */
+  .case-study-card .case-study-content {
+    font-size: 1.05rem !important;   /* bump readability */
+    line-height: 1.7 !important;
+  }
+  .case-study-card .case-study-content p {
+    font-size: 1.05rem !important;
+  }
+  /* Metric badges slightly larger for tap targets */
+  .case-study-card .metric-badge {
+    font-size: 0.95rem !important;
+    padding: 8px 12px !important;
+  }
+  /* Buttons inside cards slightly larger for touch ergonomics */
+  .case-study-card .walkthrough-button {
+    font-size: 1rem !important;
+    padding: 13px 22px !important;
+  }
+}
+
+</style>
+
+<style id="animated-bg">
+  body {
+    background: #f7f9fc;
+    overflow-x: hidden;
+  }
+  .shape {
+    position: fixed;
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+    z-index: -1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    opacity: 0.8;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-50px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const colors = [
+      'linear-gradient(135deg, rgba(37,99,235,0.3), rgba(59,130,246,0.3))',
+      'linear-gradient(135deg, rgba(14,165,233,0.3), rgba(34,211,238,0.3))',
+      'linear-gradient(135deg, rgba(16,185,129,0.3), rgba(5,150,105,0.3))',
+      'linear-gradient(135deg, rgba(251,191,36,0.3), rgba(245,158,11,0.3))',
+      'linear-gradient(135deg, rgba(239,68,68,0.3), rgba(220,38,38,0.3))'
+    ];
+    const shapes = [
+      { size: 120, top: '10%', left: '15%' },
+      { size: 200, top: '60%', left: '70%' },
+      { size: 140, top: '30%', left: '80%' },
+      { size: 180, top: '75%', left: '25%' },
+      { size: 160, top: '40%', left: '40%' },
+      { size: 100, top: '20%', left: '60%' },
+      { size: 220, top: '85%', left: '50%' },
+    ];
+    shapes.forEach(s => {
+      const el = document.createElement('div');
+      el.classList.add('shape');
+      el.style.width = s.size + 'px';
+      el.style.height = s.size + 'px';
+      el.style.top = s.top;
+      el.style.left = s.left;
+      el.style.background = colors[Math.floor(Math.random()*colors.length)];
+      el.style.animationDuration = (15 + Math.random()*10) + 's';
+      document.body.appendChild(el);
+    });
+  });
+</script>
+
+
+<style id="alignment-overrides">
+  /* Alignment overrides to match index.html spacing */
+  .container { max-width: 1000px !important; padding: 0 1.5rem !important; margin-left:auto !important; margin-right:auto !important; }
+  section { padding: 2rem 0 !important; }
+  /* Keep cards away from edges on very wide screens too */
+  @media (min-width: 1400px) { .container { max-width: 1000px !important; } }
+  /* Ensure mobile breathing room */
+  @media (max-width: 768px) { .container { padding: 0 1rem !important; } }
+  /* NOTE: Colors/backgrounds untouched */
+</style>
+
+
+<style id="horizontal-alignments">
+  /* Core competencies horizontal layout */
+  .core-competencies, .competencies, .skills-list {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  .core-competencies li, .competencies li, .skills-list li {
+    list-style: none;
+    margin: 0.5rem 1rem;
+  }
+  /* Contact cards horizontal layout */
+  .contact-cards, .contact-section, .contact-container {
+    display: flex !important;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .contact-cards .card, .contact-section .card, .contact-container .card {
+    flex: 0 1 250px;
+  }
+</style>
+
+
+<style id="force-single-line">
+  /* Force exactly 4 competencies in one line */
+  .core-competencies, .competencies, .skills-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    justify-items: center;
+    align-items: stretch;
+  }
+  .core-competencies li, .competencies li, .skills-list li {
+    list-style: none;
+    font-size: 0.95rem;
+  }
+  /* Force exactly 4 contact cards in one line */
+  .contact-cards, .contact-section, .contact-container {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: stretch;
+  }
+  .contact-cards .card, .contact-section .card, .contact-container .card {
+    width: 100%;
+    max-width: 250px;
+  }
+</style>
+
+
+<style id="force-specific-lines">
+  /* Force exactly 4 competencies in one line */
+  .core-competencies, .competencies, .skills-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    justify-items: center;
+    align-items: stretch;
+  }
+  .core-competencies li, .competencies li, .skills-list li {
+    list-style: none;
+    font-size: 0.95rem;
+  }
+  /* Force exactly 3 contact cards in one line */
+  .contact-cards, .contact-section, .contact-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: stretch;
+  }
+  .contact-cards .card, .contact-section .card, .contact-container .card {
+    width: 100%;
+    max-width: 280px;
+  }
+</style>
+
+
+<style id="rows-enforced">
+  /* === Core Competencies: force 4 in a single row === */
+  .core-competencies, .competencies, .skills-list, .competency-cards, .cards.competencies {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+  .core-competencies > *, .competencies > *, .skills-list > *, .competency-cards > *, .cards.competencies > * {
+    flex: 0 0 calc((100% - 3rem) / 4) !important; /* 3 gaps of 1rem => 4 cols */
+    max-width: calc((100% - 3rem) / 4) !important;
+    box-sizing: border-box !important;
+  }
+  /* Slightly tighten inner spacing so all four fit elegantly */
+  .core-competencies > * .card, .competencies > * .card, .skills-list > * .card,
+  .competency-cards > * .card, .cards.competencies > * .card {
+    padding: 0.85rem !important;
+  }
+
+  /* === Contact Section: force 3 in a single row === */
+  .contact-cards, .contact-section, .contact-container, #contact .cards, .cards.contact {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 1.5rem !important;
+  }
+  .contact-cards > *, .contact-section > *, .contact-container > *, #contact .cards > *, .cards.contact > * {
+    flex: 0 0 calc((100% - 3rem) / 3) !important; /* 2 gaps of 1.5rem => 3 cols */
+    max-width: calc((100% - 3rem) / 3) !important;
+    box-sizing: border-box !important;
+  }
+  .contact-cards > * .card, .contact-section > * .card, .contact-container > * .card,
+  #contact .cards > * .card, .cards.contact > * .card {
+    padding: 1rem !important;
+  }
+
+  /* Avoid accidental wrapping caused by long words */
+  .core-competencies, .competencies, .skills-list, .contact-cards, .contact-section, .contact-container, .cards.competencies, .cards.contact {
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+</style>
+
+
+<style id="one-line-rows-precise">
+  /* FORCE Core Competencies into one line of 4 cards */
+  .competencies-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    overflow: visible !important;
+  }
+  .competencies-grid .competency-card {
+    flex: 0 0 calc((100% - 60px) / 4) !important; /* 3 gaps (20px) -> 60px */
+    max-width: calc((100% - 60px) / 4) !important;
+    padding: 16px !important; /* slightly tighter so 4 fit comfortably */
+  }
+  .competency-card .competency-title { font-size: 1rem !important; }
+  .competency-card .competency-icon { transform: scale(0.9); }
+
+  /* FORCE Contact section into one line of 3 cards */
+  .contact-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 30px !important;
+    max-width: 1000px !important; /* keeps away from screen edges */
+    margin: 0 auto !important;
+  }
+  .contact-grid .contact-card {
+    flex: 0 0 calc((100% - 60px) / 3) !important; /* 2 gaps (30px) -> 60px */
+    max-width: calc((100% - 60px) / 3) !important;
+    padding: 20px !important;
+  }
+</style>
+
+</head>
+<body>
+<div class="background-overlay"></div><div class="checks-bg"></div>
+<!-- Enhanced Floating decorative elements - More circles -->
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="floating-element"></div>
+<div class="content">
+<header>
+<h1>Anu Bharti - Data Analyst Experience</h1>
+<p>Feburary 2024 – July 2025</p>
+</header>
+<div class="container">
+<!-- Profile Section -->
+<section class="section">
+<h2 class="section-title">Profile</h2>
+<div class="card">
+<div class="card-content">
+<div class="profile-grid">
+<div class="about-section">
+<h3>About Me</h3>
+<p>
+                                    After tutoring and a brief stint in banking, I stumbled upon a data-analysis course online and unexpectedly, it clicked. What started as curiosity quickly turned into a passion for data and tech. At Konrai Overseas, I spent over a year as a Data Analyst, building a solid foundation in data cleaning, simple automations, and insight reporting. I’m now exploring larger roles where I can learn fast, collaborate, and deliver measurable outcomes.
+                                </p>
+<button class="journey-button" onclick="toggleJourney()">My Journey</button>
+<div class="journey-content" id="journeyContent">
+<h4>From non-tech to tech...</h4>
+<p>
+                                        I graduated in 2015, and like many others, I decided to give government exams a serious shot. To support myself during prep, I started tutoring, and to my surprise, it picked up really well. I genuinely enjoyed teaching, and since it was financially rewarding too, I stuck with it until 2020. But then the pandemic hit, many of my students dropped off, and that’s when I decided to shift gears for something more stable. I prepared for banking services and eventually cracked the SBI Junior Associate exam. I was posted in Pratapgarh in 2023. However, after about 9–10 months there, I realized two things: the work felt quite mundane, and I was actually doing better financially as a tutor. So, I chose to return to tutoring.
+                                    </p>
+<p>
+                                       And this is where it gets interesting. After I left SBI, I found myself in that classic “what's next?” phase, constantly going back and forth, trying to figure out what truly interests me. I’d always believed that anything technical or coding-related just wasn’t my thing. But then, purely by chance, I stumbled upon a free data analysis course on YouTube. It jumped straight into the coding screen with simple explanations, and I thought -why not give it a shot? Next thing I know, three hours had flown by and I was completely hooked. It just clicked with me in a way I never expected. That moment changed everything and I knew I wanted to dive deeper.
+                                    </p>
+<p>
+                                       I then got an opportunity to work at a small firm, where I developed the skills needed for data analysis. Now I’m ready to onboard into bigger roles and opportunities to further sharpen my skills and grow.
+                                    </p>
+<p>
+                                       
+</div>
+</div>
+<div class="about-section">
+<h3>Core Competencies</h3>
+<div class="competencies-grid">
+<div class="competency-card">
+<div class="competency-item">
+<svg class="competency-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="competency-text">Work-flow Automation</span>
+</div>
+</div>
+<div class="competency-card">
+<div class="competency-item">
+<svg class="competency-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="competency-text">Data Integration &amp; ETL</span>
+</div>
+</div>
+<div class="competency-card">
+<div class="competency-item">
+<svg class="competency-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="competency-text">Power Bi Dashboard</span>
+</div>
+</div>
+<div class="competency-card">
+<div class="competency-item">
+<svg class="competency-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="competency-text">Python EDA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Studies -->
+<section class="section">
+<h2 class="section-title">Case Studies</h2>
+<div class="case-studies-grid">
+<div class="card case-study-card">
+<div class="card-content">
+<img alt="Case study visual" class="case-study-img" src="SQL2.jpg"/><h3 class="case-study-title">1. Leads Workflow Scripting</h3>
+<div class="case-study-content">
+<p><strong>Before:</strong> Monthly reports took 2-3 days to prepare, scattered across Excel files.</p>
+<p><strong>My Role:</strong> Built an ETL process raw_leads > cleaned_data > rejected/null leads > final_leads_data.</p>
+<p><strong>Impact:</strong> Reporting time reduced by 85%, data accuracy improved.</p>
+</div>
+<div class="metrics-badges"><span class="metric-badge">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+85% faster reporting</span></div><div class="case-study-footer">
+<button class="walkthrough-button" onclick="openModal('dashboard-modal')">Walkthrough...</button>
+<a class="walkthrough-button" href="https://github.com/anubharti322/SQL-scripting/blob/main/Workflow.sql" target="_blank" rel="noopener">View Code...</a>
+</div>
+</div>
+</div>
+<div class="card case-study-card">
+<div class="card-content">
+<img alt="Case study visual" class="case-study-img" src="DATA.jpg"/><h3 class="case-study-title">2. Vizualisation with Power Bi</h3>
+<div class="case-study-content">
+<p><strong>Before:</strong> Leads tracked manually in Excel, high duplication, slow follow-ups.</p>
+<p><strong>My Role:</strong> Connected Power BI to SQL Server and configured automated refresh, enabling dashboards to update in real time with the latest data.</p>
+<p><strong>Impact:</strong> Follow-up went up from 65% to 92% in 2 months.</p>
+</div>
+<div class="metrics-badges"><span class="metric-badge">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+92% follow-up completion</span><span class="metric-badge">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+32% higher lead→visit</span></div><div class="case-study-footer">
+<button class="walkthrough-button" onclick="openModal('crm-modal')">Walkthrough...</button>
+<a class="walkthrough-button" href="https://github.com/anubharti322/Power-Bi-Visualization/blob/main/Lead%20Management%20Insights.jpg" target="_blank" rel="noopener">View Visuals...</a>
+</div>
+</div>
+</div>
+<div class="card case-study-card">
+<div class="card-content">
+<img alt="Case study visual" class="case-study-img" src="AUTOMATE (2).jpg"/><h3 class="case-study-title">3. Automation Using SQL Agent</h3>
+<div class="case-study-content">
+<p><strong>Before:</strong> Manually executed daily import/cleanup scripts.</p>
+<p><strong>My Role:</strong> Automated the daily ETL by converting manual scripts into stored procedures and scheduling them via SQL Server Agent</p>
+<p><strong>Impact:</strong> Delivered zero-touch daily refreshes, cutting run time by ~60 and reducing import errors by ~90%, with 99% on-time completion.</p>
+</div>
+<div class="metrics-badges"><span class="metric-badge">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+(90% error eliminated)</span></div><div class="case-study-footer">
+<button class="walkthrough-button" onclick="openModal('forecasting-modal')">Walkthrough...</button>
+<a class="walkthrough-button" href="https://github.com/anubharti322/Automation-with-SQL-Server-Agent/blob/main/Stored_procedures.sql" target="_blank" rel="noopener">View Code...</a>
+</div>
+</div>
+</div>
+<div class="card case-study-card">
+<div class="card-content">
+<img alt="Case study visual" class="case-study-img" src="python.jpg"/><h3 class="case-study-title">4. Python analysis and visualization(Bonus Project)</h3>
+<div class="case-study-content">
+<p><strong>Tools used:</strong> Pyhton libraries Pandas and Matplotlib.</p>
+<p><strong>My Role:</strong>Cleaned CSV file downloaded from Kaggle and displayed insights throught visualization.</p>
+</div>
+<div class="metrics-badges"><span class="metric-badge">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+Python skills</span></div><div class="case-study-footer">
+<button class="walkthrough-button" onclick="openModal('pricing-modal')">Walkthrough...</button>
+<a class="walkthrough-button" href="https://github.com/anubharti322/Python-Analysis-and-Visualization/blob/main/RoadAccident_Analysis.ipynb" target="_blank" rel="noopener">View Code...</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Results -->
+<!-- Contact Cards -->
+<section class="section">
+<h2 class="section-title">Get In Touch</h2>
+<div class="contact-grid">
+<div class="card contact-card">
+<div class="card-content">
+<div class="contact-icon email-icon">
+<svg fill="white" height="30" viewbox="0 0 24 24" width="30">
+<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+<polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</div>
+<h3 class="contact-title">Email</h3>
+<p class="contact-text">anubharti322@gmail.com</p>
+</div>
+</div>
+<div class="card contact-card">
+     <a href="https://www.linkedin.com/in/anu-bharti-5b8655370/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+<div class="card-content">
+<div class="contact-icon linkedin-icon">
+<svg fill="white" height="30" viewbox="0 0 24 24" width="30">
+<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+<rect height="12" width="4" x="2" y="9"></rect>
+<circle cx="4" cy="4" r="2"></circle>
+</svg>
+</div>
+<h3 class="contact-title">LinkedIn</h3>
+<p class="contact-text">Connect with me</p>
+</div>
+</a>
+</div>
+<div class="card contact-card">
+  <a href="https://github.com/anubharti322" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+    <div class="card-content">
+      <div class="contact-icon github-icon">
+        <svg fill="white" height="30" viewBox="0 0 24 24" width="30">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+      </div>
+      <h3 class="contact-title">GitHub</h3>
+      <p class="contact-text">View my projects</p>
+    </div>
+  </a>
+</div>
+
+</div></section>
+</div>
+<footer>
+<p>© 2025 Anu Bharti - Data Analytics Portfolio</p>
+</footer>
+</div>
+<!-- Modal Windows -->
+<!-- Dashboard Modal -->
+<div class="modal" id="dashboard-modal">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">SQL Workflow Walkthrough</h3>
+<button class="close-button" onclick="closeModal('dashboard-modal')">×</button>
+</div>
+<div class="modal-body">
+<h4>Project Overview</h4>
+<p>Built a SQL-driven ETL that ingests messy Excel leads from multiple sources, standardizes and validates them, quarantines bad records, de-duplicates, and publishes a single trusted dataset for daily reporting.</p>
+<h4>Technical Implementation</h4>
+<ul class="tech-points">
+  <li>Ingest → normalize → validate → reject/fix → publish.</li>
+  <li>Standardized phones, emails, dates, and budgets.</li>
+  <li>Required-fields check; invalid rows quarantined with reasons.</li>
+  <li>Duplicate control on normalized phone/email/ID.</li>
+  <li>Source lineage for accountability; automated daily runs.</li>
+</ul>
+<h4>Results and Impact</h4>
+<ul class="tech-points">
+  <li>Approx. 88% reduction in manual cleaning/merging time; one time daily run process replaces ad-hoc work.</li>
+  <li>Reduction in duplicates by approx. 97%, improving accuracy of conversion and source metrics.</li>
+  <li>Data refresh moved to daily, speeding lead follow-ups and decision-making.</li>
+  <li>Better ownership and auditability through clear reject logs.</li>
+  <li>A consistent, analytics-ready dataset powering dashboards.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- CRM Modal -->
+<div class="modal" id="crm-modal">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">visualization Walkthrough</h3>
+<button class="close-button" onclick="closeModal('crm-modal')">×</button>
+</div>
+<div class="modal-body">
+<h4>Overview</h4>
+  <p>
+    Built an end-to-end Power BI model on top of my cleaned SQL master table to deliver
+    real-time insights on lead flow, agent productivity, conversion funnel, and SLA compliance.
+  </p>
+
+  <h4>Problem</h4>
+  <ul>
+    <li>Leads scattered across multiple Excel files, creating duplicates and stale reports.</li>
+    <li>Slow first responses and low follow-up completion (~65%) due to manual tracking.</li>
+  </ul>
+
+  <h4>What I Built</h4>
+  <ul>
+    <li>Power BI dashboards connected directly to SQL Server (staging → cleaned → master).</li>
+    <li>Automated refresh to keep visuals in sync without manual exports.</li>
+  </ul>
+
+  <h4>How It Works (Flow)</h4>
+  <ol>
+    <li><strong>Source:</strong> SQL cleaned/master tables from my ETL.</li>
+    <li><strong>Measures:</strong> DAX for conversion %, first-response time, duplicate rate, funnel stages.</li>
+    <li><strong>Visuals:</strong> Overview cards, funnel, agent/source leaderboards, area performance.</li>
+    <li><strong>Ops:</strong> Scheduled refresh for real-time insights.</li>
+  </ol>
+
+  <h4>Impact</h4>
+  <ul>
+    <li>Follow-up completion improved by <strong>65%</strong> in two months.</li>
+    <li><strong>~32%</strong> uplift in lead→visit conversions through prioritization and timely nudges.</li>
+    <li>Duplicates reduced by <strong>~95%</strong>, stabilizing KPIs and reducing noise.</li>
+  </ul>
+
+  <h4>Why It Matters</h4>
+  <p>
+    Turned reporting into a daily operating system—always-fresh, trustworthy metrics that let
+    sales act faster on hot leads and focus on the highest-impact sources and agents.
+  </p>
+
+  <h4>Tech & Skills Demonstrated</h4>
+  <ul>
+    <li>DAX measures.</li>
+    <li>SQL Server connectivity, scheduled refresh.(optional RLS).</li>
+    <li>Performance tuning: measure tables, reduced high-cardinality visuals, no auto date/time.</li>
+    <li>Storytelling UX: bookmarks, drillthrough, tooltips, KPI cards, and funnel design.</li>
+  </ul></p>
+</div>
+</div>
+</div>
+<!-- Forecasting Modal -->
+<div class="modal" id="forecasting-modal">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">Automation Process</h3>
+<button class="close-button" onclick="closeModal('forecasting-modal')">×</button>
+</div>
+<div class="modal-body">
+ <h4>Overview</h4>
+  <p>
+    I set up a daily SQL Server Agent job that runs my stored procedures end to end. It clears the staging table,
+    imports new Excel files into <code>raw_leads</code>, normalizes and validates fields, routes incomplete records to
+    <code>leads_rejected</code> with clear reasons, de-duplicates, upserts the final set into <code>master_leads</code>,
+    and refreshes a lightweight <code>reporting</code> table for dashboards. The job is idempotent (safe to re-run) and
+    keeps lineage (<code>agent_name</code>, <code>source_file</code>) for quick tracebacks.
+  </p>
+
+  <h4>Results &amp; Impact</h4>
+  <p>
+    The pipeline now refreshes automatically each day, cutting manual prep to near zero and removing copy-paste errors.
+    I have a single trusted <code>reporting table</code>, duplicates are handled consistently, incomplete rows are easy to fix,
+    and dashboards load faster because the heavy cleaning happens in SQL before BI. Overall, it’s a stable, repeatable,
+    auditable workflow that lets me focus on analysis instead of wrangling data.
+  </p>
+</div>
+</div>
+</div>
+<!-- Pricing Modal -->
+<div class="modal" id="pricing-modal">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">Project Walkthrough</h3>
+<button class="close-button" onclick="closeModal('pricing-modal')">×</button>
+</div>
+<div class="modal-body">
+<h4>Overview</h4>
+<p>I turned a large road-accident dataset (~307k rows) into clear, business-ready insights. Starting from raw CSV, I cleaned and standardized fields, engineered time features (Month names, Hour), ran focused EDA, and built tidy visuals.</p>
+<h4>Insights and Interpretations</h4>
+<li>
+      <strong>Seasonality:</strong>
+      late-year months (esp. <b>Nov/Oct</b>) carry higher incident volumes
+      &rarr; plan awareness drives &amp; resource allocation accordingly.
+    </li>
+    <li>
+      <strong>Rush-hour risk:</strong>
+      <b>3–5 PM</b> is the riskiest window
+      &rarr; target patrols, signage, and traffic calming measures around these hours.
+    </li>
+    <li>
+      <strong>Lighting matters:</strong>
+      while <b>Daylight</b> dominates overall volume, <b>no-lighting</b> areas show substantial risk
+      &rarr; prioritize lighting audits &amp; maintenance in those zones.
+    </li>
+    <li>
+      <strong>Severity profile:</strong>
+      majority <b>Slight</b>, but the presence of <b>Fatal</b> cases + label noise
+      underscores the need for <b>data governance</b> (validation at source, controlled vocab).
+    </li>
+<h4>Impact (Business Value)</h4>
+<li>
+      <strong>Operational planning:</strong>
+      tune staffing and checkpoints to peak months/hours.
+    </li>
+    <li>
+      <strong>Infrastructure:</strong>
+      justify investments in <b>lighting</b> where accidents persist without illumination.
+    </li>
+    <li>
+      <strong>Governance:</strong>
+      enforce category dictionaries (prevent &ldquo;Fetal&rdquo; typo), maintain duplicate/missing checks in the ingestion pipeline.
+    </li>
+    <li>
+      <strong>Communication:</strong>
+      polished visuals for leadership decks; quick &ldquo;so what?&rdquo; callouts for non-technical stakeholders.
+    </li>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<script>
+        function toggleJourney() {
+            const content = document.getElementById('journeyContent');
+            const button = document.querySelector('.journey-button');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                button.textContent = 'My Journey';
+            } else {
+                content.classList.add('show');
+                button.textContent = 'Hide Journey';
+            }
+        }
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const openModal = document.querySelector('.modal.show');
+                if (openModal) {
+                    openModal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
